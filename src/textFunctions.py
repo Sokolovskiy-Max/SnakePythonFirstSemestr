@@ -1,14 +1,12 @@
 import pygame
-
-import parameters
-from parameters import surface
+from src.config import surface, INPUT_TEXT_COLOR
 
 need_input = False
 input_text = '|'
 tick = 30
 
 
-def print_text(message, x, y, font_color='white', font_type='font.oTF', font_size=30):
+def print_text(message, x, y, font_color='white', font_type='fonts/font.oTF', font_size=30):
     font_type = pygame.font.Font(font_type, font_size)
     text = font_type.render(message, True, font_color)
     surface.blit(text, (x, y))
@@ -18,7 +16,7 @@ def get_input(x, y):
     global need_input, input_text, tick
     input_rect = pygame.Rect(x, y, 250, 70)
 
-    pygame.draw.rect(parameters.surface, (255, 45, 137), input_rect)
+    pygame.draw.rect(surface, INPUT_TEXT_COLOR, input_rect)
     mouse = pygame.mouse.get_pos()
     click = pygame.mouse.get_pressed()
     if input_rect.collidepoint(mouse[0], mouse[1]) and click[0]:

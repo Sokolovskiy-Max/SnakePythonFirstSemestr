@@ -1,4 +1,5 @@
-from Rd_Pt_Text import *
+from src.textFunctions import *
+from src.config import save_data
 
 
 class HighScores:
@@ -18,3 +19,8 @@ class HighScores:
             print_text(str(scores), x, y)
             x -= step_x
             y += step_y
+
+
+high_scores = HighScores(save_data.get('hs'))
+
+

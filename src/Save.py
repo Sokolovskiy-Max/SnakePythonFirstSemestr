@@ -3,13 +3,13 @@ import shelve
 
 class Saves:
     def __init__(self):
-        self.file = shelve.open('data')
+        self.file = shelve.open('data/data')
 
     def save(self):
         self.file['Info'] = self.info
-        self.file['Number'] = 42
+        self.file['Number'] = 40
 
-    def get(self,name):
+    def get(self, name):
         try:
             return self.file[name]
         except KeyError:
